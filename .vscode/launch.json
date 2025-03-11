@@ -1,0 +1,14 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Cortex Debug",
+      "type": "cortex-debug",
+      "request": "launch",
+      "servertype": "openocd",
+      "executable": "${workspaceFolder}/build/output.elf",
+      "configFiles": ["interface/stlink.cfg", "target/stm32f1x.cfg"],
+      "svdFile": "${workspaceFolder}/STM32F103.svd"
+    }
+  ]
+}

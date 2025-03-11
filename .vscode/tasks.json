@@ -1,0 +1,47 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "build",
+      "type": "shell",
+      "command": "arm-none-eabi-gcc",
+      "args": [
+        "-mcpu=cortex-m3",
+        "-mthumb",
+        "-g",
+        "-O0",
+        "-T",
+        "STM32F103C8Tx_FLASH.ld",
+        "-o",
+        "build/output.elf",
+        "src/main.c",
+        "src/system_stm32f1xx.c",
+        "src/stm32f1xx_hal_gpio.c",
+        "src/stm32f1xx_hal_rcc.c",
+        "src/stm32f1xx_hal.c",
+        "-I",
+        "inc",
+        "-I",
+        "CMSIS/Include",
+        "-I",
+        "CMSIS/Device/ST/STM32F1xx/Include",
+        "-I",
+        "STM32F1xx_HAL_Driver/Inc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "make all",
+      "type": "shell",
+      "command": "make",
+      "args": ["all"],
+      "group": {
+        "kind": "build",
+        "isDefault": false
+      }
+    }
+  ]
+}
